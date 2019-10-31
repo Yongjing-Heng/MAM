@@ -1,2 +1,2 @@
-# MRN
-source code for paper : MRN:Mixed Attention Network with Random Disrupt Augmentation
+# MAM
+source code for paper : MAM:Mixed Attention Module with Random Disruption Augmentation

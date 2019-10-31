@@ -192,21 +192,21 @@ def main():
         net_train(net, train_load, optimizer, epoch, args.log_interval)
         net_test(net, test_load, epoch)
 
-        if (epoch+1) == 60:    ##################################3
+        if (epoch+1) == 60:
             lr = args.lr / 10
             print('reset learning rate to:', lr)
             for param_group in optimizer.param_groups:
                 param_group['lr'] = lr
                 print(param_group['lr'])
 
-        if (epoch + 1) == 120:  ##################################3
+        if (epoch + 1) == 120:
             lr = args.lr / 100
             print('reset learning rate to:', lr)
             for param_group in optimizer.param_groups:
                 param_group['lr'] = lr
                 print(param_group['lr'])
 
-        if (epoch + 1) == 180:  ##################################3
+        if (epoch + 1) == 180:
             lr = args.lr / 1000
             print('reset learning rate to:', lr)
             for param_group in optimizer.param_groups:

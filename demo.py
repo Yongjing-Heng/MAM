@@ -9,7 +9,7 @@ import datetime
 import argparse
 
 from basic_layers import ResidualBlock
-from RD import RandomDisrupt
+from RandomDisruption import RandomDisrupt
 from Mixed_Attention_Module import MixedAttentionBlock
 
 

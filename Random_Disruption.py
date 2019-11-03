@@ -2,8 +2,6 @@ import numpy as np
 import random
 from PIL import Image
 
-
-
 class RandomDisrupt(object):
     def __init__(self, cutting_num, p=0.5):
         self.cutting_num = cutting_num
@@ -11,7 +9,6 @@ class RandomDisrupt(object):
 
     def __call__(self, img):
         return disrupt_image(img, self.cutting_num, self.p)
-
 
 def disrupt_image(img, cutting_num, p):
     imgnp = np.array(img)
@@ -93,7 +90,6 @@ def disrupt_image(img, cutting_num, p):
     if img.mode == 'RGB' or img.mode == 'RGBA':
         img = Image.fromarray(imgnp.astype('uint8')).convert('RGB')
         return img
-
 
 """
 cross cutting(fail)
@@ -199,7 +195,6 @@ def four_cutting_v1(imgnp, h, w, a, p):
         imgnp = np.vstack((a_half, b_half))
 
     return imgnp
-
 
 """
 single cutting direction

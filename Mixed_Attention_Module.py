@@ -20,7 +20,6 @@ class MixedAttentionBlock(nn.Module):
         self.sa = SpatialAttention()        
         self.conv4 = nn.Conv2d(input_channels, output_channels , 1, stride, bias = False)
 
-
     def forward(self, x):
         residual = x
         out = self.bn1(x)

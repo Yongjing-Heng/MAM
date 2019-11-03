@@ -1,6 +1,5 @@
 import torch.nn as nn
 
-
 class ResidualBlock(nn.Module):
     def __init__(self, input_channels, output_channels, stride=1):
         super(ResidualBlock, self).__init__()
@@ -18,7 +17,6 @@ class ResidualBlock(nn.Module):
         self.conv3 = nn.Conv2d(output_channels//4, output_channels, 1, 1, bias = False)
         self.conv4 = nn.Conv2d(input_channels, output_channels , 1, stride, bias = False)
 
-
     def forward(self, x):
         residual = x
         out = self.bn1(x)
@@ -31,10 +29,7 @@ class ResidualBlock(nn.Module):
         out = self.relu(out)
         out = self.conv3(out)
 
-
         if (self.input_channels != self.output_channels) or (self.stride !=1 ):
             residual = self.conv4(out1)
         out += residual
         return out
-
-

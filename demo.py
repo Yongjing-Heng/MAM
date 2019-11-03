@@ -22,8 +22,6 @@ global_train_error = []
 global_test_error = []
 
 
-
-
 class MixedAttentionModel(nn.Module):
     def __init__(self):
         super(MixedAttentionModel, self).__init__()
@@ -59,9 +57,7 @@ class MixedAttentionModel(nn.Module):
 
         return out
 
-
-
-
+    
 def net_train(net, train_data_load, optimizer, epoch, log_interval):
     net.train()
     begin = datetime.datetime.now()
@@ -95,8 +91,6 @@ def net_train(net, train_data_load, optimizer, epoch, log_interval):
     end = datetime.datetime.now()
     print('time spend: ', end - begin)
 
-
-
 def net_test(net, test_data_load, epoch):
     net.eval()
     ok = 0
@@ -116,9 +110,6 @@ def net_test(net, test_data_load, epoch):
     global best_acc
     if acc > best_acc:
         best_acc = acc
-
-
-
 
 def show_error_curv():
     train_x = list(range(len(global_train_error)))
@@ -158,9 +149,7 @@ def main():
     transform_train = tv.transforms.Compose([
         transforms.RandomHorizontalFlip(),
         transforms.RandomCrop((32, 32), padding=4),
-
 #        RandomDisrupt(2),
-
         transforms.ToTensor(),
     ])
 

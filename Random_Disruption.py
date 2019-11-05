@@ -77,6 +77,7 @@ def disrupt_image(img, cutting_num, p):
     if cutting_num != 3 and cutting_num != 4 and cutting_num != 2:
         print()
         print(" -- The module 'RandomDisrupt' didn't work , please pick a right number for 'cutting_num' -- ")
+        return
 
     """
     if gray

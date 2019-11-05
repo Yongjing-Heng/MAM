@@ -57,7 +57,7 @@ class MixedAttentionModel(nn.Module):
 
         return out
 
-    
+
 def net_train(net, train_data_load, optimizer, epoch, log_interval):
     net.train()
     begin = datetime.datetime.now()
@@ -91,6 +91,7 @@ def net_train(net, train_data_load, optimizer, epoch, log_interval):
     end = datetime.datetime.now()
     print('time spend: ', end - begin)
 
+
 def net_test(net, test_data_load, epoch):
     net.eval()
     ok = 0
@@ -111,6 +112,7 @@ def net_test(net, test_data_load, epoch):
     if acc > best_acc:
         best_acc = acc
 
+
 def show_error_curv():
     train_x = list(range(len(global_train_error)))
     train_y = global_train_error
@@ -127,7 +129,7 @@ def show_error_curv():
 
 
 def main():
-    parser = argparse.ArgumentParser(description='PyTorch CIFA10 Mixed Attention Module')
+    parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Mixed Attention Module')
     parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                         help='input batch size for training (default: 64)')
     parser.add_argument('--test-batch-size', type=int, default=20, metavar='N',
@@ -138,6 +140,8 @@ def main():
                         help='learning rate (default: 0.1)')
     parser.add_argument('--momentum', type=float, default=0.9, metavar='M',
                         help='SGD momentum (default: 0.9)')
+    parser.add_argument('--weight-decay', type=float, default=0.0005, metavar='W',
+                        help='weight decay (default: 0.0005)')
     parser.add_argument('--log-interval', type=int, default=20, metavar='N',
                         help='how many batches to wait before logging training status (default: 20)')
     parser.add_argument('--no-train', action='store_true', default=False,
@@ -174,7 +178,7 @@ def main():
         net_test(net, test_load, 0)
         return
 
-    optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=args.momentum, nesterov=True, weight_decay=0.0001)
+    optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=args.momentum, nesterov=True, weight_decay=args.weight_decay)
     start_time = datetime.datetime.now()
 
     for epoch in range(1, args.epochs + 1):

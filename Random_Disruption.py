@@ -79,15 +79,10 @@ def disrupt_image(img, cutting_num, p):
         print(" -- The module 'RandomDisrupt' didn't work , please pick a right number for 'cutting_num' -- ")
         return
 
-    """
-    if gray
-    """
     if img.mode == 'L':
         img = Image.fromarray(imgnp.astype('uint8')).convert('L')
         return img
-    """
-    if RGB
-    """
+
     if img.mode == 'RGB' or img.mode == 'RGBA':
         img = Image.fromarray(imgnp.astype('uint8')).convert('RGB')
         return img

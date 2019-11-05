@@ -8,7 +8,7 @@ import torch.utils.data
 import datetime
 import argparse
 
-from basic_layers import ResidualBlock
+from Residual_Block import ResidualBlock
 from Random_Disruption import RandomDisrupt
 from Mixed_Attention_Module import MixedAttentionBlock
 
@@ -129,17 +129,17 @@ def show_error_curv():
 def main():
     parser = argparse.ArgumentParser(description='PyTorch CIFA10 Mixed Attention Module')
     parser.add_argument('--batch-size', type=int, default=64, metavar='N',
-                        help='input batch size for training (default: 128)')
+                        help='input batch size for training (default: 64)')
     parser.add_argument('--test-batch-size', type=int, default=20, metavar='N',
-                        help='input batch size for testing (default: 100)')
+                        help='input batch size for testing (default: 20)')
     parser.add_argument('--epochs', type=int, default=200, metavar='N',
                         help='number of epochs to train (default: 200)')
     parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                         help='learning rate (default: 0.1)')
     parser.add_argument('--momentum', type=float, default=0.9, metavar='M',
                         help='SGD momentum (default: 0.9)')
-    parser.add_argument('--log-interval', type=int, default=10, metavar='N',
-                        help='how many batches to wait before logging training status (default: 10)')
+    parser.add_argument('--log-interval', type=int, default=20, metavar='N',
+                        help='how many batches to wait before logging training status (default: 20)')
     parser.add_argument('--no-train', action='store_true', default=False,
                         help='If train the Model')
     parser.add_argument('--save-model', action='store_true', default=False,

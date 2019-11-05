@@ -193,7 +193,7 @@ def four_cutting_v1(imgnp, h, w, a, p):
     return imgnp
 
 """
-single cutting direction
+single direction cutting 
 """
 def four_cutting_v2(imgnp, h, w, a, p):
     if a <= p / 2:

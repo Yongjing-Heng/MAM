@@ -8,7 +8,7 @@ Note: accepted by ISCAS 2020
 ```
 @inproceedings{zeng2020mam,
 	title={MAM : Mixed Attention Module with Random Disruption Augmentation for Image Classification},
-	author={Zeng, W. and Jiu, C. and Wang, J. and Lai, X. and Lin, Z.},
+	author={Zeng, W. and Cao, J. and Wang, J. and Lai, X. and Lin, Z.},
   	booktitle={ISCAS},
 	pages={1--5},
 	year={2020},

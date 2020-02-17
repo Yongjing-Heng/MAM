@@ -75,17 +75,17 @@ def disrupt_image(img, cutting_num, p):
 
 
     if cutting_num != 3 and cutting_num != 4 and cutting_num != 2:
-        print()
-        print(" -- The module 'RandomDisrupt' didn't work , please pick a right number for 'cutting_num' -- ")
-        return
+        raise RuntimeError(" -- The module 'RandomDisrupt' didn't work , please pick a right number for 'cutting_num' -- ")
 
     if img.mode == 'L':
         img = Image.fromarray(imgnp.astype('uint8')).convert('L')
         return img
-
-    if img.mode == 'RGB' or img.mode == 'RGBA':
+    elif img.mode == 'RGB' or img.mode == 'RGBA':
         img = Image.fromarray(imgnp.astype('uint8')).convert('RGB')
         return img
+    else:
+        raise RuntimeError("Unrecognized picture format")
+    
 
 """
 cross cutting(fail)

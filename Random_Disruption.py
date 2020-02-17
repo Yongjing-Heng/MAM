@@ -31,7 +31,6 @@ def disrupt_image(img, cutting_num, p):
             left_half = imgnp[0:h, 0:w // 2 + 1]
             right_half = imgnp[0:h, w // 2 + 1:w]
             imgnp = np.hstack((right_half, left_half))
-
     """
     3 slices cutting
     """
@@ -65,7 +64,6 @@ def disrupt_image(img, cutting_num, p):
                 imgnp = np.hstack((b_piece, a_piece, c_piece))
             else:
                 imgnp = np.hstack((b_piece, c_piece, a_piece))
-
     """
     4 slices cutting
     """
@@ -73,10 +71,8 @@ def disrupt_image(img, cutting_num, p):
 #        if h % 2 == 0 and w % 2 == 0: imgnp = four_cutting_v1(imgnp, h, w, a, p)  # cross cutting
         imgnp = four_cutting_v2(imgnp, h, w, a, p)
 
-
     if cutting_num != 3 and cutting_num != 4 and cutting_num != 2:
-        raise RuntimeError(" -- The module 'RandomDisrupt' didn't work , please pick a right number for 'cutting_num' -- ")
-
+        raise RuntimeError("The module 'RandomDisrupt' didn't work , please pick a right number for 'cutting_num'.")
     if img.mode == 'L':
         img = Image.fromarray(imgnp.astype('uint8')).convert('L')
         return img
